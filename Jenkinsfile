@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: "*/${params.BRANCH}"]], userRemoteConfigs: [[url: '<https://github.com/AndreiMurillos/cicd-pipeline-jenkins']]])
+                checkout([$class: 'GitSCM', branches: [[name: "*/${params.BRANCH}"]], userRemoteConfigs: [[url: 'https://github.com/AndreiMurillos/cicd-pipeline-jenkins']]])
             }
         }
         stage('Build Docker Image') {
