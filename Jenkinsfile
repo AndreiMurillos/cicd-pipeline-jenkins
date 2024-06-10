@@ -14,6 +14,20 @@ pipeline {
                 checkout([$class: 'GitSCM', branches: [[name: "*/${params.BRANCH}"]], userRemoteConfigs: [[url: 'https://github.com/AndreiMurillos/cicd-pipeline-jenkins']]])
             }
         }
+        stage('Build') {
+            steps {
+                script {
+                    sh 'scripts/build.sh'
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                script {
+                    sh 'scripts/test.sh'
+                }
+            }
+        }
         stage('Build Docker Image') {
             steps {
                 script {
